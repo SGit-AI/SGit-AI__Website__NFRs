@@ -9,6 +9,10 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
+# ...but the site build tooling is versioned (validate.js, chrome.py, the generators,
+# version.txt). The stock Python ignore swallowed admin/build/ on the first push here,
+# which is why CI could not find its own gate. The sibling repos carry the same line.
+!admin/build/
 develop-eggs/
 dist/
 downloads/

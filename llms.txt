@@ -7,7 +7,7 @@
 > requirements is a scarce and valuable thing; this one is the same argument from the
 > inside — how the NFRs actually get done here, including the places where they do not.
 
-Site version: v0.1.0 (25 August 2026). All content CC BY 4.0.
+Site version: v0.1.1 (25 August 2026). All content CC BY 4.0.
 
 ## What kind of site this is
 

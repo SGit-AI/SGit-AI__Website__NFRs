@@ -5,7 +5,7 @@
 > explainability, and documentation."* That sentence was written a month before this site
 > was conceived, and it is the site's table of contents.
 
-*Source: <https://nfrs.sgit.ai/index.html> · site v0.1.0 · markdown twin of the front page.*
+*Source: <https://nfrs.sgit.ai/index.html> · site v0.1.1 · markdown twin of the front page.*
 
 ---
 

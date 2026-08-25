@@ -20,7 +20,7 @@
   <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
   <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
   <span class="stage-pill">the hub</span>
-  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.1</a>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.2</a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
   <div class="nav-items">
     <div class="ni ni-has">
@@ -97,13 +97,17 @@
   <thead><tr><th>#</th><th>Task</th><th>Status</th></tr></thead>
   <tbody>
     <tr><td><b>T1</b></td><td>The scorecard generator — rebuild each cell from its sibling pack at release time rather than hand-assembling and dating.</td><td class="t-open"><b>Open</b></td></tr>
-    <tr><td><b>T2</b></td><td>Verify every sibling link resolves to a live page. The pre-release gate checks internal links only; external links to siblings are unchecked.</td><td class="t-open"><b>Open</b></td></tr>
+    <tr><td><b>T2</b></td><td>Verify every sibling link resolves. <a href="build/check_siblings.py">check_siblings.py</a> now reports it — deliberately as a report and <b>not</b> as a gate, because a sibling's outage should not turn this repository's build red for a reason nobody here can fix. It found one genuine defect, fixed in v0.1.2: the network line said <code>sentinel.</code> where the site is <code>sg-sentinel.</code>. See <a href="#network-state">the network state</a> below.</td><td class="t-done"><b>Done</b></td></tr>
     <tr><td><b>T3</b></td><td>Count the day-indexes and debriefs, so <a href="../pm/index.html#counter">the PM page's scale claim</a> can drop its tilde.</td><td class="t-open"><b>Open</b></td></tr>
     <tr><td><b>T4</b></td><td>Confirm the IFD guides against current practice, so <a href="../ifd/index.html#counter">the page can stop describing itself as unverified</a>.</td><td class="t-open"><b>Open</b></td></tr>
     <tr><td><b>T5</b></td><td>The site's own markdown twins beyond the front page — every page, per the house rule.</td><td class="t-open"><b>Open</b></td></tr>
     <tr><td><b>T6</b></td><td>First release: the pipeline, the pages, the agent surface, the brief pack published.</td><td class="t-done"><b>Done</b></td></tr>
   </tbody>
 </table></div>
+
+<h2 id="network-state">The network, as this hub sees it</h2>
+<p>Output of <a href="build/check_siblings.py">check_siblings.py</a>, <span class="asof">25 August 2026</span>: <b>12 of 14 hosts answering</b>.</p>
+<div class="note"><b>Two siblings are linked and not yet live:</b> <code>coding.sgit.ai</code> and <code>skills.sgit.ai</code> both return 404. The hostnames are correct — each repository carries the matching <code>CNAME</code> — so these are sites that exist and have not shipped, not links that are wrong. <b>The links stay.</b> Removing a correct link to an unshipped sibling would make this hub less useful rather than more accurate, and it would hide a fact about the network that a reader is better off knowing. Restated here, dated, rather than silently carried.</div>
 
 <h2 id="unresolved">Published unresolved</h2>
 <p>Not tasks. Questions the site carries in the open rather than answering for tidiness, per <a href="../documents/gaps.html">the pack's instruction</a>:</p>
@@ -125,7 +129,7 @@
     <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
     <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
     <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
-    <p class="verline">site <a href="../admin/versions.html">v0.1.1</a> · <a href="../admin/index.html">engineering</a></p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.2</a> · <a href="../admin/index.html">engineering</a></p>
   </div>
   <div>
     <h4>The hub</h4>

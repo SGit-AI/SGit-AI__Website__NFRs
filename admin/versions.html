@@ -20,7 +20,7 @@
   <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
   <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
   <span class="stage-pill">the hub</span>
-  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.1</a>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.2</a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
   <div class="nav-items">
     <div class="ni ni-has">
@@ -84,6 +84,11 @@
   <thead><tr><th>Version</th><th>Date</th><th>What shipped</th></tr></thead>
   <tbody>
     <tr>
+      <td class="vnum">v0.1.2</td>
+      <td>25 Aug 2026</td>
+      <td><b>The hub checks its own spokes.</b> <a href="build/check_siblings.py">check_siblings.py</a> reports whether every sibling host this site links actually answers, and it found the one defect worth finding: the network line said <code>sentinel.</code> where the site is <code>sg-sentinel.</code> — a wrong hostname carried straight over from the house pattern and repeated on four pages. <b>It is deliberately a report and not a gate.</b> This site links twelve hosts it does not control, so wiring their availability into CI would mean a sibling's outage turns this repository's build red for a reason nobody here can fix; a gate should fail for defects its own repository can correct, and everything else is a report a human reads before a release. The first run is <a href="comms.html#network-state">published on the comms board with its date</a>: twelve of fourteen answering, with <code>coding.</code> and <code>skills.</code> linked, correctly named, and not yet shipped. <b>Those links stay</b> — removing a correct link to an unshipped sibling would hide a fact about the network rather than fix one.</td>
+    </tr>
+    <tr>
       <td class="vnum">v0.1.1</td>
       <td>25 Aug 2026</td>
       <td><b>The gate could not find itself.</b> v0.1.0 shipped with the whole of <code>admin/build/</code> untracked: the repository was created from the stock Python <code>.gitignore</code>, whose <code>build/</code> line silently swallowed the site's own build tooling, so CI checked out a tree with no <a href="build/validate.js">validate.js</a> in it and the pipeline stopped at its first step. The sibling repositories all carry the negation line for exactly this reason; this one now does too, with the incident named beside it. <b>Worth recording rather than quietly fixing</b>, because it is this site's own <a href="../scorecard/index.html#pattern">recurring finding</a> arriving on day one and from an unexpected direction: the gate was written, tested, and shown to fail correctly on three seeded defects — and none of that mattered, because the file was never in the commit. <b>A check that is not present is indistinguishable from a check that passes</b>, which is the same defect as <a href="../testing/index.html#counter">the structural guard that has never worked</a>, one layer further out. The fix ships as a release rather than an amend: every push to the release branch is a release, and the first thing this pipeline should be able to show is that it recovers in the ordinary way.</td>
@@ -108,7 +113,7 @@
     <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
     <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
     <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
-    <p class="verline">site <a href="../admin/versions.html">v0.1.1</a> · <a href="../admin/index.html">engineering</a></p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.2</a> · <a href="../admin/index.html">engineering</a></p>
   </div>
   <div>
     <h4>The hub</h4>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Testing: no mocks, no patches — nfrs.sgit.ai</title>
+<meta name="description" content="The four non-negotiables of testing here, why no-mocks is affordable when it usually is not, the structural-guard pattern in which every guard encodes a rule that was violated at least once, and the measured places the discipline does not hold.">
+<link rel="canonical" href="https://nfrs.sgit.ai/testing/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nfrs.sgit.ai">
+<meta property="og:url" content="https://nfrs.sgit.ai/testing/index.html">
+<meta property="og:title" content="No mocks. No patches. And why that is affordable here">
+<meta property="og:description" content="A testing philosophy is usually unaffordable because constructing the real thing is expensive. Here the type system made it cheap, which means the philosophy and the type system were one decision rather than two.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">the hub</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../map/index.html">The map<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../map/index.html">&#9679; The topic map</a>
+      <a class="sl" href="../memory/index.html">The memory thesis</a>
+      <a class="sl" href="../network/index.html">The network</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../testing/index.html">Practice<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl here" href="../testing/index.html">Testing</a>
+      <a class="sl" href="../ci/index.html">CI pipelines</a>
+      <a class="sl" href="../resilience/index.html">Resilience</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documentation/index.html">Documentation<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documentation/index.html">The reality system</a>
+      <a class="sl" href="../ifd/index.html">IFD: the methodology</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../budgets/index.html">Money &amp; work<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../budgets/index.html">Budgets as a discipline</a>
+      <a class="sl" href="../pm/index.html">Project management</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../scorecard/index.html">The honest column<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../scorecard/index.html">&#9679; The scorecard</a>
+      <a class="sl" href="../backups/index.html">Backups: the gap</a>
+      <a class="sl" href="../shipped/index.html">What this site ships</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documents/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documents/index.html">The documents</a>
+      <a class="sl" href="../admin/comms.html">Comms: tasks &amp; requests</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__NFRs">★ GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+<div class="crumb"><a href="../index.html">nfrs.sgit.ai</a> / testing</div>
+<h1>No mocks. No patches.</h1>
+<p class="lead">Most testing philosophies fail on economics rather than on principle. Everyone agrees that testing the real object beats testing a stand-in; almost nobody can afford to construct the real object in a unit test, so the stand-in wins and the suite slowly stops describing the system. The interesting part of this estate's testing position is not the rule. It is <b>why the rule is affordable here</b>.</p>
+
+<h2 id="four">The four non-negotiables</h2>
+<p>Quoted from the canonical testing guidance, which is one of the guides with <code>for_llms</code> in its filename — the intended reader was named in the filename before anybody wrote <a href="../memory/index.html">the memory thesis</a> down.</p>
+<div class="ladder">
+  <div class="cap"><span class="capnum">1</span><h3>No mocks. No patches.</h3><p>Compose the real objects in memory instead. Services provide an in-memory composition path, and tests use it. <span class="from">Consequence: <b>a test that passes describes the system, not the test's own scaffolding.</b></span></p></div>
+  <div class="cap"><span class="capnum">2</span><h3>Assert on contracts</h3><p>Schemas, status codes, persisted artefacts. Not implementation details, and not the shape of an internal call. <span class="from">Consequence: <b>a refactor that preserves behaviour does not rewrite the suite.</b></span></p></div>
+  <div class="cap"><span class="capnum">3</span><h3>Real Chromium for integration tests</h3><p>Gated on an environment variable naming the executable, and <b>skipping cleanly when it is absent</b> rather than failing or silently passing. <span class="from">Consequence: <b>the same suite runs on a laptop without a browser and in CI with one.</b></span></p></div>
+  <div class="cap"><span class="capnum">4</span><h3>Deploy via pytest</h3><p>Deploy steps are numbered tests — create, then invoke, then check health — and run top-down. <span class="from">Consequence: <b>a deployment is a thing that can fail loudly at a named step</b>, and the deploy path is exercised by the same tool as everything else.</span></p></div>
+</div>
+
+<h2 id="affordable">Why no-mocks is affordable here and not elsewhere</h2>
+<p>The typed-object layer this estate builds on makes construction cheap: an object can be composed in memory in the time it would take to configure a mock, and every service has an in-memory composition path already written because the type system encouraged one. So the real thing is as easy to instantiate as a stand-in would be, and the economics that normally defeat the rule never bite.</p>
+<p class="claim">The testing philosophy and the type system are one decision, not two. An estate that adopts the rule without the substrate will find it unaffordable, and will be right.</p>
+<p>That is the transferable finding, and it is also the honest limit of the advice: <b>do not adopt this rule in isolation</b>. The measured proof that it works here — the suite size and the wall-clock time it runs in — is taken and published by <a href="https://sg-compute.sgit.ai">sg-compute.sgit.ai</a>, and this page links it rather than restating it, per <a href="../map/index.html#contract">the hub's contract</a>.</p>
+
+<h2 id="guards">The structural-guard pattern</h2>
+<p>The part of this practice least likely to be found elsewhere. Alongside the behavioural suite there is a small set of CI tests that assert on <b>architecture rather than behaviour</b>: that a particular sentinel default is never used, that a UI concern has not leaked into a layer that should not know about it, that a component's public surface still matches its snapshot.</p>
+<p>The rule that keeps the set healthy is the whole idea:</p>
+<p class="claim">Every guard encodes a rule that was violated at least once.</p>
+<p>Guards grown from incidents stay few, stay meaningful, and stay worth the failure they cause. Guards grown from a checklist accumulate, and the first time one of them is wrong the team learns to route around the category. The pattern is the same one <a href="../resilience/index.html">the resilience doctrine</a> arrives at from the other direction: <em>design for the failure you had</em>.</p>
+
+<h2 id="counter">Counter-evidence</h2>
+<div class="warnbox">
+<p><b>The discipline is real and the coverage is not what the numbers suggest.</b> Measured in the sg-compute pack <span class="asof">as of 24 August 2026</span>, and published here as found:</p>
+<ul>
+  <li><b>CI runs only about two-thirds of the collectible tests.</b> The suite is large and fast; the part of it that actually runs on every push is smaller than the headline count implies.</li>
+  <li><b>Several import-level breakages hide in the un-run third.</b> They do not fail, because nothing collects them.</li>
+  <li><b>One of the four structural guards has never worked.</b> A guard that cannot fail is not a guard; it is a green tick with no referent, which is worse than nothing because it is counted.</li>
+  <li><b>A few tests fail on date arithmetic</b> rather than on the behaviour they were written to check.</li>
+</ul>
+<p>All four are measured and published in <a href="https://sg-compute.sgit.ai">the sg-compute pack</a>, which is where the numbers live. This site links them and does not re-count.</p>
+</div>
+<p>The finding worth carrying away is not that the coverage is imperfect. It is the same finding <a href="../documentation/index.html#counter">the documentation page</a> reaches independently: <b>discipline without tooling is real but fragile</b>. Every one of those four items is a thing a check could have caught and no check was watching for.</p>
+
+<div class="pagenav">
+  <a href="../memory/index.html">← The memory thesis</a>
+  <a href="../ci/index.html">CI pipelines →</a>
+</div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">nfrs<span>.sgit.ai</span></div>
+    <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a></p>
+  </div>
+  <div>
+    <h4>The hub</h4>
+    <a href="../map/index.html">&#9679; The topic map</a>
+    <a href="../memory/index.html">The memory thesis</a>
+    <a href="../scorecard/index.html">The scorecard</a>
+    <a href="../network/index.html">The network</a>
+    <a href="../backups/index.html">Backups: the gap</a>
+  </div>
+  <div>
+    <h4>The owned disciplines</h4>
+    <a href="../testing/index.html">Testing</a>
+    <a href="../ci/index.html">CI pipelines</a>
+    <a href="../documentation/index.html">Documentation &amp; reality</a>
+    <a href="../ifd/index.html">IFD</a>
+    <a href="../resilience/index.html">Resilience</a>
+  </div>
+  <div>
+    <h4>Discipline, not figures</h4>
+    <a href="../budgets/index.html">Budgets</a>
+    <a href="../pm/index.html">Project management</a>
+    <a href="../shipped/index.html">What this site ships</a>
+    <a href="../documents/index.html">The documents</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../admin/comms.html">Comms: tasks &amp; requests</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../llms.txt">llms.txt</a>
+    <a href="../llms-full.txt">llms-full.txt</a>
+  </div>
+</div></footer>
+
+</body>
+</html>

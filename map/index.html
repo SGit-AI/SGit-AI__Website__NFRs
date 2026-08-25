@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The topic map — nfrs.sgit.ai</title>
+<meta name="description" content="Every non-functional-requirement topic in this network: what it means here in one line, where the canonical material lives, and which site owns it. The hub artefact, and the deconfliction contract that keeps it from restating its spokes.">
+<link rel="canonical" href="https://nfrs.sgit.ai/map/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nfrs.sgit.ai">
+<meta property="og:url" content="https://nfrs.sgit.ai/map/index.html">
+<meta property="og:title" content="The topic map — where every NFR topic in this network lives">
+<meta property="og:description" content="One page an agent reads to know where everything else is. Each NFR topic with its position in a line, its canonical source, and its owning site, plus the owns-versus-links contract that keeps the hub from drifting from its spokes.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">the hub</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl here" href="../map/index.html">The map<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl here" href="../map/index.html">&#9679; The topic map</a>
+      <a class="sl" href="../memory/index.html">The memory thesis</a>
+      <a class="sl" href="../network/index.html">The network</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../testing/index.html">Practice<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../testing/index.html">Testing</a>
+      <a class="sl" href="../ci/index.html">CI pipelines</a>
+      <a class="sl" href="../resilience/index.html">Resilience</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documentation/index.html">Documentation<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documentation/index.html">The reality system</a>
+      <a class="sl" href="../ifd/index.html">IFD: the methodology</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../budgets/index.html">Money &amp; work<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../budgets/index.html">Budgets as a discipline</a>
+      <a class="sl" href="../pm/index.html">Project management</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../scorecard/index.html">The honest column<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../scorecard/index.html">&#9679; The scorecard</a>
+      <a class="sl" href="../backups/index.html">Backups: the gap</a>
+      <a class="sl" href="../shipped/index.html">What this site ships</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documents/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documents/index.html">The documents</a>
+      <a class="sl" href="../admin/comms.html">Comms: tasks &amp; requests</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__NFRs">★ GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+<div class="crumb"><a href="../index.html">nfrs.sgit.ai</a> / map</div>
+<h1>The topic map</h1>
+<p class="lead">This is the hub's reason to exist. Fourteen sites is itself a retrieval problem, and an agent arriving at a network with no index reproduces the discovery failure that <a href="../documents/memory-thesis.html">the agent-access report</a> found inside a single site: <em>it can read the map and cannot walk it</em>. So here is the map. Every non-functional-requirement topic, with its position in one line, where the canonical material lives, and which site owns it.</p>
+
+<p class="claim">This site owns the disciplines that have no other home, and the map that shows where everything else lives. Where a sibling has measured something, this site links that measurement and never restates it.</p>
+
+<h2 id="contract">The deconfliction contract</h2>
+<p>Read this before the table, because it is what makes the table safe to rely on. A hub that duplicates its spokes produces two sources of truth, and the second one rots first.</p>
+<div class="tablewrap"><table>
+  <thead><tr><th>Status</th><th>What it means on this site</th></tr></thead>
+  <tbody>
+    <tr><td><b>OWNS</b></td><td>The canonical write-up lives here. Siblings link to it. The artefacts and measurements may live elsewhere; the <em>discipline</em> is written here.</td></tr>
+    <tr><td><b>LINKS</b></td><td>Another site owns the topic. This site states only the <em>requirement framing</em> — what the NFR asks for — and points at the owner. It does not restate their material and does not carry their numbers.</td></tr>
+    <tr><td><b>THE GAP</b></td><td>On the eight-item list, and nobody owns it, here or anywhere. Published as an absence rather than left blank.</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="owned">Owned by this site</h2>
+
+<h3 id="testing">Testing — <b>OWNS</b></h3>
+<p><b>Position:</b> <em>No mocks. No patches.</em> Assert on contracts rather than implementation; real Chromium for integration tests, gated on an environment variable and skipping cleanly when it is absent; deploy <em>via</em> pytest, with numbered tests running top-down. It is affordable because typed objects are cheap to compose in memory, so the real thing is as easy to instantiate as a mock would be: <b>the type system and the testing philosophy are one decision</b>.</p>
+<p><b>Where the measurements live:</b> the sg-compute pack, linked from <a href="../testing/index.html">the testing page</a>. <b>Cross-link:</b> <a href="https://coding.sgit.ai">coding.sgit.ai</a> owns the conventions; this site owns the philosophy and the counter-evidence.</p>
+
+<h3 id="ci">CI pipelines — <b>OWNS</b></h3>
+<p><b>Position:</b> the pipeline is a <em>verifier</em>, not a runner. Native per-arch builds, push by digest only, integration-test the pre-tag image, and only then assemble a manifest and give it a name. Machine images are baked, relaunched and re-verified before being tagged healthy. Versions auto-increment from one repository-root file.</p>
+<p><b>Owner of the artefacts:</b> <a href="https://sg-compute.sgit.ai">sg-compute.sgit.ai</a>. This site owns <a href="../ci/index.html">the pattern write-up</a>.</p>
+
+<h3 id="documentation">Documentation — <b>OWNS</b></h3>
+<p><b>Position:</b> documentation is a <b>truth system, not prose</b>. The governing rule: <em>if the reality document doesn't list it, it does not exist. Briefs are aspirations, not facts.</em> Proposed features carry a <code>PROPOSED</code> label. Every page has a markdown twin. Day-indexes, debriefs classified as good-failure or bad-failure, a licence footer as a corpus rule.</p>
+<p><b>Canonical:</b> <a href="../documentation/index.html">the reality system page</a>, with the measurements linked to the sibling packs that took them.</p>
+
+<h3 id="ifd">IFD — Iterative Flow Development — <b>OWNS</b></h3>
+<p><b>Position:</b> the estate's named methodology. Rapid development with AI assistance while maintaining engineering rigour, centred on <b>preserving developer flow state</b>. The guides are versioned and written explicitly <em>for LLMs assisting with IFD-based development</em>. Minor versions are one team's output unit; majors are a release.</p>
+<p><b>Nobody outside this estate has seen this methodology written up.</b> It is this site's most original owned asset — see <a href="../ifd/index.html">the IFD page</a>, including the open question of whether publishing it is the right call.</p>
+
+<h3 id="budgets">Budgets and finance — <b>OWNS the discipline, not the business</b></h3>
+<p><b>Position:</b> three pillars. <em>Profitability-first</em>: until the traction and the cost lines are known, projections are made up. <em>Pre-approve the ladder</em>: approve the overrun positions at approval time, with the stopping point named while it is still cheap to name. <em>Budget-on-the-step</em>: budgets attached to workflow steps rather than to projects, so containment is structural.</p>
+<p><b>Boundary:</b> the discipline is publishable; this estate's own financial figures are not, anywhere. <a href="../budgets/index.html">The page states that boundary on itself.</a> <b>Cross-link:</b> token spend as an engineering problem belongs to <a href="https://wardley-maps.sgit.ai">wardley-maps.sgit.ai</a>.</p>
+
+<h3 id="pm">Project management — <b>OWNS</b></h3>
+<p><b>Position:</b> <em>the project manager is where the register becomes work</em> — a register per project, a net score, erosion, the missing reference class. Risk management and project management as one discipline with two vocabularies. Plus the estate's own way of working as the exhibit: briefs with acceptance criteria, same-day cross-team reviews, day-indexes, numbered asks and tasks, version-prefixed filenames, session handover guides.</p>
+<p><a href="../pm/index.html">The page</a> includes the part nobody had written down: how a brief becomes work here, described as a system.</p>
+
+<h3 id="resilience">Resilience — <b>OWNS the patterns</b>; artefacts live in sg-compute</h3>
+<p><b>Position:</b> design for the failure you had, not the one you imagine. A watchdog that exits hard through a deadlock rather than waiting politely, a two-phase health poller, halt-means-terminate, idle reconciliation, build-time guards each citing a production incident. <b>Every resilience mechanism in this estate traces to a named incident</b> — that is the doctrine, and it was nowhere written down.</p>
+<p><b>Artefacts:</b> <a href="https://sg-compute.sgit.ai">sg-compute.sgit.ai</a>. <b>Doctrine:</b> <a href="../resilience/index.html">here</a>.</p>
+
+<h2 id="linked">Linked, never restated</h2>
+<p>These topics have owners. This site states the requirement framing in a line and stops.</p>
+<div class="tablewrap"><table>
+  <thead><tr><th>Topic</th><th>The requirement framing this site owns</th><th>Who owns the topic</th></tr></thead>
+  <tbody>
+    <tr><td><b>Security</b></td><td>The NFR posture only: audit before the key · deny-by-default allowlists · key-prefix validation · no credentials in git, with CI gates · the disclosed-incident norm.</td><td><a href="https://pki.sgit.ai">pki.</a> · <a href="https://nhi.sgit.ai">nhi.</a> · <a href="https://sentinel.sgit.ai">sg-sentinel.</a> · <a href="https://standards.sgit.ai">standards.</a> · the LLM boundary to <a href="https://llms.sgit.ai">llms.</a></td></tr>
+    <tr><td><b>Serverless &amp; scalability</b></td><td><em>No servers running when there is no traffic, with a defined cost to start.</em> Plus the honesty note: throughput here is argued, never measured.</td><td><a href="https://sg-compute.sgit.ai">sg-compute.sgit.ai</a></td></tr>
+    <tr><td><b>Explainability</b></td><td>The engineering habit only: <b>computed, not claimed</b> · unanswered is an output · estimates rendered with a tilde.</td><td>The grounding ladder is <a href="https://risks.sgit.ai">risks.</a> and <a href="https://standards.sgit.ai">standards.</a>; provenance is <a href="https://llms.sgit.ai">llms.</a></td></tr>
+    <tr><td><b>Architecture</b></td><td>Responsibility boundaries as a requirement class — <em>X is the ONLY class that…</em> — and single-source-of-truth by structure rather than by convention.</td><td><a href="https://coding.sgit.ai">coding.sgit.ai</a> owns the conventions</td></tr>
+    <tr><td><b>Consistency</b></td><td>This site owns the <em>requirement</em>: one source of truth per fact, and drift is a defect rather than a housekeeping matter. The three homes are named rather than merged.</td><td>Conventions: <a href="https://coding.sgit.ai">coding.</a> · sources of truth: here · drift across skills: <a href="https://skills.sgit.ai">skills.</a></td></tr>
+    <tr><td><b>The villagers argument</b></td><td>This site is that sentence from the inside. The market-side argument is not restated here.</td><td><a href="https://open-source.sgit.ai">open-source.sgit.ai</a></td></tr>
+    <tr><td><b>Lifecycle &amp; evolution</b></td><td>Where an NFR sits on the evolution axis changes what discipline it deserves — genesis work is not town-planner work.</td><td><a href="https://wardley-maps.sgit.ai">wardley-maps.sgit.ai</a></td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="gap">The gap</h2>
+<div class="warnbox"><b>Backups — on the list, and nobody owns it.</b> Mentioned constantly across the corpus, with no doctrine anywhere: no written backup or recovery discipline beyond one proposal attached to a keys vault. This is an estate with irreversible publishing and frozen vaults, which is precisely where the absence costs most. <a href="../backups/index.html">The stub is published so the gap is visible</a>, along with the open question that has to be answered first: is the vault model — versioning plus escrow — already the doctrine, unnamed?</div>
+
+<h2 id="counter">Counter-evidence</h2>
+<p>The obvious objection to this page: <b>is a hub site worth its drift risk?</b> Fourteen spokes, all moving, and the hub's whole value is curation — which is the first thing to rot. The mitigations are the link-never-restate rule above and the generate-or-date rule the <a href="../admin/index.html#validate">pre-release gate enforces</a>. If those hold, the hub is worth it. If they do not, the fallback is this page alone, and everything else on the site is a bonus. That question is published unresolved rather than assumed away.</p>
+
+<div class="pagenav">
+  <a href="../index.html">← Front page</a>
+  <a href="../memory/index.html">The memory thesis →</a>
+</div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">nfrs<span>.sgit.ai</span></div>
+    <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a></p>
+  </div>
+  <div>
+    <h4>The hub</h4>
+    <a href="../map/index.html">&#9679; The topic map</a>
+    <a href="../memory/index.html">The memory thesis</a>
+    <a href="../scorecard/index.html">The scorecard</a>
+    <a href="../network/index.html">The network</a>
+    <a href="../backups/index.html">Backups: the gap</a>
+  </div>
+  <div>
+    <h4>The owned disciplines</h4>
+    <a href="../testing/index.html">Testing</a>
+    <a href="../ci/index.html">CI pipelines</a>
+    <a href="../documentation/index.html">Documentation &amp; reality</a>
+    <a href="../ifd/index.html">IFD</a>
+    <a href="../resilience/index.html">Resilience</a>
+  </div>
+  <div>
+    <h4>Discipline, not figures</h4>
+    <a href="../budgets/index.html">Budgets</a>
+    <a href="../pm/index.html">Project management</a>
+    <a href="../shipped/index.html">What this site ships</a>
+    <a href="../documents/index.html">The documents</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../admin/comms.html">Comms: tasks &amp; requests</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../llms.txt">llms.txt</a>
+    <a href="../llms-full.txt">llms-full.txt</a>
+  </div>
+</div></footer>
+
+</body>
+</html>

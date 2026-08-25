@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Documentation as a truth system — nfrs.sgit.ai</title>
+<meta name="description" content="If the reality document does not list it, it does not exist. Briefs are aspirations, not facts. The best NFR idea in this estate, its supporting disciplines, and the two places manual enforcement failed.">
+<link rel="canonical" href="https://nfrs.sgit.ai/documentation/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nfrs.sgit.ai">
+<meta property="og:url" content="https://nfrs.sgit.ai/documentation/index.html">
+<meta property="og:title" content="If the reality document does not list it, it does not exist">
+<meta property="og:description" content="Documentation here is a truth system rather than prose: a reality document per domain lists what exists, briefs are marked as aspirations, and unbuilt features carry a PROPOSED label. The rule is right. Enforcement is manual, and it has failed twice.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">the hub</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../map/index.html">The map<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../map/index.html">&#9679; The topic map</a>
+      <a class="sl" href="../memory/index.html">The memory thesis</a>
+      <a class="sl" href="../network/index.html">The network</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../testing/index.html">Practice<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../testing/index.html">Testing</a>
+      <a class="sl" href="../ci/index.html">CI pipelines</a>
+      <a class="sl" href="../resilience/index.html">Resilience</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../documentation/index.html">Documentation<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl here" href="../documentation/index.html">The reality system</a>
+      <a class="sl" href="../ifd/index.html">IFD: the methodology</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../budgets/index.html">Money &amp; work<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../budgets/index.html">Budgets as a discipline</a>
+      <a class="sl" href="../pm/index.html">Project management</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../scorecard/index.html">The honest column<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../scorecard/index.html">&#9679; The scorecard</a>
+      <a class="sl" href="../backups/index.html">Backups: the gap</a>
+      <a class="sl" href="../shipped/index.html">What this site ships</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documents/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documents/index.html">The documents</a>
+      <a class="sl" href="../admin/comms.html">Comms: tasks &amp; requests</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__NFRs">★ GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+<div class="crumb"><a href="../index.html">nfrs.sgit.ai</a> / documentation</div>
+<h1>Documentation is a truth system, not prose</h1>
+<p class="lead">Every project has documentation and most of it is wrong, because documentation defaults to describing what somebody intended. This estate's governing rule attacks that directly, and it is the single best non-functional-requirement idea in the corpus.</p>
+
+<blockquote class="challenge">&ldquo;<b>If the reality document doesn't list it, it does not exist.</b> … <b>Briefs are aspirations, not facts.</b>&rdquo;</blockquote>
+
+<h2 id="why">Why this is a truth system rather than a style guide</h2>
+<p>The rule creates a <b>single privileged document per domain</b> whose job is not to explain anything but to enumerate what is actually there. Everything else in the corpus — briefs, designs, proposals, debriefs — is explicitly demoted to aspiration. That demotion is the load-bearing half. A corpus in which every document has equal standing has no way to answer <em>does this exist?</em>, and an agent reading it will confidently describe a feature somebody once proposed.</p>
+<p class="claim">The rule does not make documents accurate. It makes the corpus <em>answerable</em>: there is exactly one place to look, and everything else is marked as not that place.</p>
+
+<h2 id="supporting">The supporting disciplines</h2>
+<div class="tablewrap"><table>
+  <thead><tr><th>Discipline</th><th>What it does</th><th>What it costs</th></tr></thead>
+  <tbody>
+    <tr><td><b><code>PROPOSED</code> labels</b></td><td>Unbuilt features are labelled in place, so a reader who never sees the reality document still gets the warning.</td><td>Someone has to remove the label when it ships, and nothing checks.</td></tr>
+    <tr><td><b>The markdown twin</b></td><td>Every page is fetchable as markdown at a constructed URL, <em>so a traversing agent never has to parse HTML</em>.</td><td>Two artefacts per page, which is a drift surface unless generated.</td></tr>
+    <tr><td><b>Day-indexes</b></td><td>Every working day gets an index of what was produced, which turns a corpus into a timeline.</td><td>Discipline, daily.</td></tr>
+    <tr><td><b>Good-failure / bad-failure debriefs</b></td><td>Failures are classified rather than just recorded: a good failure is one that taught something for its cost.</td><td>Requires writing the debrief while the failure still stings.</td></tr>
+    <tr><td><b>Licence footer as a corpus rule</b></td><td>Every document carries its licence, so any fragment stays attributable when it travels.</td><td>Trivially automatable, and therefore the one that holds.</td></tr>
+    <tr><td><b>Handover guides</b></td><td>A session that ends writes down how the next one starts. <em>Don't improvise.</em></td><td>The value is invisible until the handover happens.</td></tr>
+  </tbody>
+</table></div>
+<p>Note the pattern in the cost column: <b>the disciplines that hold are the ones a machine enforces</b>, and the ones that drift are the ones that need a person to remember. That is not a criticism of the people. It is the finding.</p>
+
+<h2 id="counter">Counter-evidence</h2>
+<div class="warnbox">
+<p><b>The system exists, at scale, and it failed twice in exactly the way the cost column predicts.</b> Published as found <span class="asof">as of 24 August 2026</span>:</p>
+<ul>
+  <li><b>The reality index itself was dozens of versions stale.</b> The document whose entire job is to say what currently exists was, for a period, describing a system that had moved on. The rule was right and the index was wrong, which is the worst combination, because readers trusted it precisely because of the rule.</li>
+  <li><b>A README described a repository that does not exist.</b> Not a stale detail — a fictional subject.</li>
+</ul>
+<p>Both are documented with their evidence at <a href="https://sgit.ai">sgit.ai</a>, which owns the corpus and the repository the fictional README described; the conventions half of the finding belongs to <a href="https://coding.sgit.ai">coding.sgit.ai</a>. This site links rather than re-measures, per <a href="../map/index.html#contract">the hub contract</a>.</p>
+</div>
+
+<h2 id="fix">The fix this estate would recognise</h2>
+<p>The corpus already has a precedent for turning a manual rule into a machine one: the licence footer holds because an audit script checks it. The same move applies here.</p>
+<p class="claim">A reality-document freshness check in CI, exactly like the licence audit: a reality document older than the code it describes fails the build.</p>
+<p>This site runs the small version of that idea on itself. <a href="../admin/index.html#validate">The pre-release gate</a> rejects a page carrying figures without an as-of date, and rejects a discipline page that cites no sibling — both of which are freshness checks wearing different clothes. It is a much easier problem on a sixteen-page site than on a corpus, and that difference is stated rather than glossed: <b>this is a demonstration of the shape, not a solution to the hard case</b>. The hard version is <a href="../shipped/index.html#proposed">listed as proposed, not built</a>.</p>
+
+<div class="pagenav">
+  <a href="../ci/index.html">← CI pipelines</a>
+  <a href="../ifd/index.html">IFD →</a>
+</div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">nfrs<span>.sgit.ai</span></div>
+    <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a></p>
+  </div>
+  <div>
+    <h4>The hub</h4>
+    <a href="../map/index.html">&#9679; The topic map</a>
+    <a href="../memory/index.html">The memory thesis</a>
+    <a href="../scorecard/index.html">The scorecard</a>
+    <a href="../network/index.html">The network</a>
+    <a href="../backups/index.html">Backups: the gap</a>
+  </div>
+  <div>
+    <h4>The owned disciplines</h4>
+    <a href="../testing/index.html">Testing</a>
+    <a href="../ci/index.html">CI pipelines</a>
+    <a href="../documentation/index.html">Documentation &amp; reality</a>
+    <a href="../ifd/index.html">IFD</a>
+    <a href="../resilience/index.html">Resilience</a>
+  </div>
+  <div>
+    <h4>Discipline, not figures</h4>
+    <a href="../budgets/index.html">Budgets</a>
+    <a href="../pm/index.html">Project management</a>
+    <a href="../shipped/index.html">What this site ships</a>
+    <a href="../documents/index.html">The documents</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../admin/comms.html">Comms: tasks &amp; requests</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../llms.txt">llms.txt</a>
+    <a href="../llms-full.txt">llms-full.txt</a>
+  </div>
+</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IFD — Iterative Flow Development — nfrs.sgit.ai</title>
+<meta name="description" content="The estate’s named methodology: rapid development with AI assistance while maintaining engineering rigour, centred on preserving developer flow state. Versioned guides written explicitly for LLMs. Published here for the first time outside the estate.">
+<link rel="canonical" href="https://nfrs.sgit.ai/ifd/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nfrs.sgit.ai">
+<meta property="og:url" content="https://nfrs.sgit.ai/ifd/index.html">
+<meta property="og:title" content="IFD — Iterative Flow Development, published for the first time">
+<meta property="og:description" content="A named methodology with versioned guides written explicitly for LLMs assisting with IFD-based development, centred on preserving developer flow state. Nobody outside this estate had seen it written up. Publishing it is also a test of the open-source position.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">the hub</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../map/index.html">The map<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../map/index.html">&#9679; The topic map</a>
+      <a class="sl" href="../memory/index.html">The memory thesis</a>
+      <a class="sl" href="../network/index.html">The network</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../testing/index.html">Practice<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../testing/index.html">Testing</a>
+      <a class="sl" href="../ci/index.html">CI pipelines</a>
+      <a class="sl" href="../resilience/index.html">Resilience</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../documentation/index.html">Documentation<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documentation/index.html">The reality system</a>
+      <a class="sl here" href="../ifd/index.html">IFD: the methodology</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../budgets/index.html">Money &amp; work<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../budgets/index.html">Budgets as a discipline</a>
+      <a class="sl" href="../pm/index.html">Project management</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../scorecard/index.html">The honest column<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../scorecard/index.html">&#9679; The scorecard</a>
+      <a class="sl" href="../backups/index.html">Backups: the gap</a>
+      <a class="sl" href="../shipped/index.html">What this site ships</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documents/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documents/index.html">The documents</a>
+      <a class="sl" href="../admin/comms.html">Comms: tasks &amp; requests</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__NFRs">★ GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+<div class="crumb"><a href="../index.html">nfrs.sgit.ai</a> / ifd</div>
+<h1>IFD — Iterative Flow Development</h1>
+<p class="lead">This estate has a named development methodology with versioned guides, and until this page nobody outside the estate had seen it written up. That is unusual enough to state plainly: <b>this is the most original owned asset on this site</b>, and it is also the one whose publication is a live question rather than a settled one.</p>
+
+<blockquote class="challenge">&ldquo;Rapid software development using AI assistance while maintaining engineering rigor… centred on <b>preserving developer flow state</b>.&rdquo;</blockquote>
+
+<h2 id="flow">What the methodology optimises for</h2>
+<p>Most engineering process optimises for correctness, throughput, or predictability, and treats a developer's attention as an input that is either available or not. IFD names attention as <b>the scarce resource the process exists to protect</b>, and derives its rules from there. That single choice explains most of what follows, including the parts that look like ordinary good practice arrived at for an unusual reason.</p>
+<div class="tablewrap"><table>
+  <thead><tr><th>The practice</th><th>The usual reason for it</th><th class="safe">The flow-state reason</th></tr></thead>
+  <tbody>
+    <tr><td><b>Very fast test suites</b></td><td>Faster feedback, cheaper CI</td><td>A suite slow enough to context-switch away from <b>costs the session, not the seconds</b>. Speed is an attention budget.</td></tr>
+    <tr><td><b>No mocks, real objects</b></td><td>Tests describe the system</td><td>Nothing to hold in your head about how the stand-in differs from the thing. <a href="../testing/index.html">The testing rule</a>, from the flow side.</td></tr>
+    <tr><td><b>Small versioned increments</b></td><td>Reviewable changes, easy rollback</td><td>A finished increment is a place the session can <b>end cleanly</b>, which is what makes the next one cheap to start.</td></tr>
+    <tr><td><b>Guides written for LLMs</b></td><td>Documentation</td><td>An assistant that has to be re-briefed each session is a flow tax paid every morning. <a href="../memory/index.html">The memory thesis</a>, in its original form.</td></tr>
+    <tr><td><b>Handover documents</b></td><td>Continuity across people</td><td>Continuity across <em>sessions</em>, which is the same problem when one of the participants has no memory.</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="versioning">Two version schemes, side by side</h2>
+<p>The methodology's guides carry their own version series, incremented as the methodology changes, sitting inside repositories on a quite different series. Minor versions are one team's output unit; majors correspond to releases. The two schemes are deliberate — <b>the methodology and the software it produces evolve at different rates</b> — but the arrangement is confusing enough that anyone adopting it should be told about it rather than left to discover it.</p>
+
+<h2 id="publish">Should this be published at all?</h2>
+<p>Worth stating openly, because the honest answer required a decision rather than an assumption. IFD is the estate's competitive methodology. Publishing it hands a working process to anyone who wants it.</p>
+<p>Two arguments say publish, and they point the same way:</p>
+<ul>
+  <li><b>The open-source position already answers it.</b> <em>The moat is a rate, not a wall.</em> A published methodology is copyable; the rate at which this estate applies it is not. That position is owned and argued at <a href="https://open-source.sgit.ai">open-source.sgit.ai</a> and this page does not restate the case.</li>
+  <li><b><a href="../memory/index.html">The memory thesis</a> requires it.</b> A network claiming to be memory an agent can read cannot hold back the document describing how the work is actually done. That would be a memory with a redacted centre.</li>
+</ul>
+<p class="claim">The decision is to publish, and it is recorded as a decision rather than left as an assumption — because a position this consequential should not be inherited silently from a sibling site's argument.</p>
+
+<h2 id="counter">Counter-evidence</h2>
+<div class="warnbox"><b>The guides have not been re-confirmed against current practice.</b> They are a versioned series inside repositories that have moved considerably further, and nobody has checked recently whether what the guides describe is what people do <span class="asof">as of 24 August 2026</span>. That is precisely the failure <a href="../documentation/index.html#counter">the documentation page</a> records twice elsewhere in the corpus, so it would be dishonest to present these guides as verified current. <b>Treat this page as a faithful summary of the written methodology, and the written methodology as unverified against practice.</b> Confirming it is <a href="../shipped/index.html#proposed">on the proposed list</a>.</div>
+<p>A second, smaller one: this page describes IFD rather than reproducing the guides. That is deliberate — the guides live in-repository under their own licence and the <a href="../shipped/index.html#boundaries">second-source-of-truth rule</a> says keep the repository canonical and generate rather than copy — but it means this page is a derived artefact and will drift if the guides change and nobody regenerates it.</p>
+
+<div class="pagenav">
+  <a href="../documentation/index.html">← Documentation</a>
+  <a href="../budgets/index.html">Budgets →</a>
+</div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">nfrs<span>.sgit.ai</span></div>
+    <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a></p>
+  </div>
+  <div>
+    <h4>The hub</h4>
+    <a href="../map/index.html">&#9679; The topic map</a>
+    <a href="../memory/index.html">The memory thesis</a>
+    <a href="../scorecard/index.html">The scorecard</a>
+    <a href="../network/index.html">The network</a>
+    <a href="../backups/index.html">Backups: the gap</a>
+  </div>
+  <div>
+    <h4>The owned disciplines</h4>
+    <a href="../testing/index.html">Testing</a>
+    <a href="../ci/index.html">CI pipelines</a>
+    <a href="../documentation/index.html">Documentation &amp; reality</a>
+    <a href="../ifd/index.html">IFD</a>
+    <a href="../resilience/index.html">Resilience</a>
+  </div>
+  <div>
+    <h4>Discipline, not figures</h4>
+    <a href="../budgets/index.html">Budgets</a>
+    <a href="../pm/index.html">Project management</a>
+    <a href="../shipped/index.html">What this site ships</a>
+    <a href="../documents/index.html">The documents</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../admin/comms.html">Comms: tasks &amp; requests</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../llms.txt">llms.txt</a>
+    <a href="../llms-full.txt">llms-full.txt</a>
+  </div>
+</div></footer>
+
+</body>
+</html>

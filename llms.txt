@@ -1,0 +1,172 @@
+# nfrs.sgit.ai — the non-functional requirements, from the inside
+
+> NFRs — non-functional requirements — is this estate's own operative term, defined in
+> its own words as "the whole version control, reliability, resilience, security,
+> backups, consistency, explainability, and documentation". That sentence is this site's
+> table of contents. Other sites in this network argue that maintaining non-functional
+> requirements is a scarce and valuable thing; this one is the same argument from the
+> inside — how the NFRs actually get done here, including the places where they do not.
+
+Site version: v0.1.0 (25 August 2026). All content CC BY 4.0.
+
+## What kind of site this is
+
+This is a HUB. Most NFR topics already have an owner elsewhere in the sgit.ai network,
+so this site does two things: it owns the disciplines with no other home, and it holds
+the topic map that says where everything else lives. It operates under one rule, and the
+rule is enforced by the pre-release gate rather than by good intentions:
+
+  LINK THE MEASUREMENT, NEVER RESTATE IT. GENERATE OR DATE EVERY NUMBER.
+
+Consequences an agent can rely on:
+- No measurement on this site is a re-measurement. Where a figure exists, the sibling
+  site that took it is linked, and that link is the citation.
+- Every page carrying a figure carries an as-of date. CI fails the build otherwise.
+- Every discipline page links at least one sibling site. CI fails the build otherwise.
+- Every discipline page ends with its counter-evidence — the measured places the
+  practice being taught did not hold here.
+
+## Properties agents may rely on
+
+- Every source document is fetchable at a stable constructed URL:
+  /briefs/v0.33.62__nfrs-brief-pack__<name>.md. This is a promise, not an accident.
+- The whole site's document set is available in one fetch at /llms-full.txt, for agents
+  whose fetch tools refuse URLs a search has not already returned.
+- The front page has a markdown twin at /index.md.
+
+## The pages, each with its single most important fact
+
+/index.html
+  The eight-NFR sentence is quoted verbatim wherever this site states its scope, and the
+  scorecard teaser appears on the front page rather than being buried.
+
+/map/index.html — THE TOPIC MAP. Read this first.
+  Seven topics are OWNED here (testing, CI, documentation, IFD, budgets-as-discipline,
+  project management, resilience patterns); five are LINKED and never restated (security
+  domains, serverless, explainability's grounding ladder, architecture conventions, the
+  villagers market argument); one — backups — is on the estate's own list and has no
+  doctrine anywhere.
+
+/memory/index.html — THE MEMORY THESIS
+  "These sites are a more evolved and focused version of what is usually called LLM
+  memory." Memory you can read, cite, version, license and hand to any agent, because it
+  is a website. The evidence it was already the design: guides with for_llms in the
+  filename, the markdown twin at every URL, and an agent-access report diagnosing a
+  memory-retrieval failure in those terms. Its honest limit: in an agent-memory network,
+  a stale page is a false memory, and this estate has already produced four stale
+  artefacts.
+
+/testing/index.html
+  No mocks, no patches — and the reason it is affordable here is that cheap typed objects
+  make composing the real thing as easy as configuring a stand-in. THE TESTING PHILOSOPHY
+  AND THE TYPE SYSTEM ARE ONE DECISION; adopting the rule without the substrate will be
+  unaffordable. Counter-evidence: CI runs about two-thirds of collectible tests, and one
+  of the four structural guards has never worked.
+
+/ci/index.html
+  Build once, verify before naming: nothing gets a name until it has passed as an
+  anonymous digest, and a machine image must prove itself twice, once as built and once
+  as booted. Counter-evidence: a workflow invoking a binary defined nowhere, sixteen
+  times, and a second version file that nothing reads.
+
+/documentation/index.html
+  "If the reality document doesn't list it, it does not exist. Briefs are aspirations,
+  not facts." The rule does not make documents accurate; it makes the corpus ANSWERABLE.
+  Counter-evidence: the reality index was itself dozens of versions stale, and a README
+  described a repository that does not exist.
+
+/ifd/index.html — IFD, ITERATIVE FLOW DEVELOPMENT
+  The estate's named methodology, published outside the estate for the first time here.
+  It names developer attention as the scarce resource the process exists to protect, and
+  derives its rules from that. Counter-evidence: the guides are summarised faithfully and
+  have NOT been verified against current practice.
+
+/resilience/index.html
+  Every resilience mechanism in this estate traces to a named incident. That is the
+  doctrine, it keeps the mechanism set small and every mechanism explicable, and it was
+  nowhere written down before this page.
+
+/budgets/index.html
+  Profitability-first, pre-approve-the-ladder, budget-on-the-step. "The person who
+  approved the first million is, on the evidence, the worst available decider on the
+  second." NONE OF THIS ESTATE'S OWN FINANCIAL FIGURES APPEAR ANYWHERE ON THIS SITE, in
+  any form — the discipline is published and the numbers are not.
+
+/pm/index.html
+  "The project manager is where the register becomes work." Plus the original page: how a
+  brief becomes work here — acceptance criteria, numbered asks and tasks, same-day
+  cross-team review, day-indexes, classified debriefs, handover guides. Demonstrated
+  across roughly 4,000 documents and described as a system nowhere until this page.
+
+/scorecard/index.html
+  The estate against its own eight-item list, with no plain tick in it. Reading down the
+  failure column produces one sentence: WHAT A MACHINE ENFORCES, HOLDS; WHAT ATTENTION
+  ENFORCES, DRIFTS. The table is hand-assembled and dated, not generated, and says so.
+
+/backups/index.html
+  The one NFR on the estate's own list with no doctrine at all. The question to answer
+  first: is the vault model — versioning plus escrow — already the doctrine, unnamed?
+  And the requirement that survives either answer: a restore that has never been
+  performed is not a backup.
+
+/shipped/index.html
+  What this site asserts versus what it can demonstrate, by status: measured elsewhere,
+  position, described-from-the-corpus, proposed-and-not-built, absent. Also the
+  do-not-publish boundaries and the licensing.
+
+/network/index.html
+  The fourteen sites by owner. Organised by site; /map/ is the same set organised by
+  topic and carries the positions. A position stated on /network/ would be a bug.
+
+/documents/index.html
+  The eight source documents published whole, with the raw markdown as the source of
+  truth. The pack's ninth file, a source manifest indexing do-not-publish material by
+  path, is deliberately not published.
+
+/admin/index.html · /admin/comms.html · /admin/versions.html
+  How the site is built and gated; the numbered asks still open with the project lead;
+  the release history.
+
+## What this site will not tell you
+
+- Any figure from this estate's own finances. Not rates, margins, pricing, projections
+  or runway, in any form, on any page.
+- Live hostnames, account identifiers or stack addresses.
+- Market statistics about technical debt or NFR spend. The source brief flags its own
+  market figures as loosely attributed vendor commentary, so this site carries none.
+- Anything a sibling site measured. It links the sibling instead. This is the rule, not
+  an omission.
+
+## The sibling sites, and what they own
+
+https://sgit.ai — the parent project: the vault layer, the CLI, the platform docs
+https://sg-compute.sgit.ai — the serverless platform, and most of the measurements this
+  site links: testing, CI, resilience artefacts
+https://coding.sgit.ai — coding conventions and formatting
+https://open-source.sgit.ai — the villagers argument as economics (this site is its
+  mirror: the same argument from the inside)
+https://pki.sgit.ai — public key infrastructure for agents
+https://nhi.sgit.ai — non-human identity, the problem statement
+https://sentinel.sgit.ai — detection and monitoring
+https://standards.sgit.ai — standards and the grounding vocabulary
+https://risks.sgit.ai — risk registers, scoring, evidence
+https://llms.sgit.ai — the LLM boundary and provenance
+https://graphs.sgit.ai — graphs and the visual layer
+https://twins.sgit.ai — digital twins as a primitive
+https://skills.sgit.ai — agent skills and the drift between them
+https://wardley-maps.sgit.ai — evolution and lifecycle
+
+## Source documents
+
+/briefs/v0.33.62__nfrs-brief-pack__README.md — the pack's reading order
+/briefs/v0.33.62__nfrs-brief-pack__00__BRIEF.md — the commission, the name, the hub shape
+/briefs/v0.33.62__nfrs-brief-pack__01__the-topic-map.md — the map, in full
+/briefs/v0.33.62__nfrs-brief-pack__02__the-memory-thesis.md — the thesis
+/briefs/v0.33.62__nfrs-brief-pack__03__the-owned-disciplines.md — the five in depth
+/briefs/v0.33.62__nfrs-brief-pack__04__site-architecture.md — page by page
+/briefs/v0.33.62__nfrs-brief-pack__05__boundaries-and-licensing.md — the contract
+/briefs/v0.33.62__nfrs-brief-pack__06__gaps-and-open-questions.md — published unresolved
+/briefs/v0.33.62__nfrs-brief-pack__LICENCE.md — CC BY 4.0
+
+Attribution: Dinis Cruz, with AI co-authorship. Repository:
+https://github.com/SGit-AI/SGit-AI__Website__NFRs

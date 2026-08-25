@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The memory thesis — nfrs.sgit.ai</title>
+<meta name="description" content="These sites are a more evolved and focused version of what is usually called LLM memory: memory you can read, cite, version, license and hand to any agent, because it is a website. The claim, the evidence it was already the design, and its honest limits.">
+<link rel="canonical" href="https://nfrs.sgit.ai/memory/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nfrs.sgit.ai">
+<meta property="og:url" content="https://nfrs.sgit.ai/memory/index.html">
+<meta property="og:title" content="These sites are agent memory, done as publishing">
+<meta property="og:description" content="Conventional LLM memory is accumulated transcripts, retrieved by similarity, private to one vendor, unversioned and invisible to the person it describes. This network is the same function built as publishing — and that makes it an NFR story, which is why the page lives here.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">the hub</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl here" href="../map/index.html">The map<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../map/index.html">&#9679; The topic map</a>
+      <a class="sl here" href="../memory/index.html">The memory thesis</a>
+      <a class="sl" href="../network/index.html">The network</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../testing/index.html">Practice<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../testing/index.html">Testing</a>
+      <a class="sl" href="../ci/index.html">CI pipelines</a>
+      <a class="sl" href="../resilience/index.html">Resilience</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documentation/index.html">Documentation<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documentation/index.html">The reality system</a>
+      <a class="sl" href="../ifd/index.html">IFD: the methodology</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../budgets/index.html">Money &amp; work<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../budgets/index.html">Budgets as a discipline</a>
+      <a class="sl" href="../pm/index.html">Project management</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../scorecard/index.html">The honest column<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../scorecard/index.html">&#9679; The scorecard</a>
+      <a class="sl" href="../backups/index.html">Backups: the gap</a>
+      <a class="sl" href="../shipped/index.html">What this site ships</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documents/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documents/index.html">The documents</a>
+      <a class="sl" href="../admin/comms.html">Comms: tasks &amp; requests</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__NFRs">★ GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+<div class="crumb"><a href="../index.html">nfrs.sgit.ai</a> / memory</div>
+<h1>These sites are agent memory, done as publishing</h1>
+<p class="lead">The clearest statement of what this whole network is for was made in a chat message commissioning a site. It should not have stayed there.</p>
+
+<blockquote class="challenge">&ldquo;The idea of these sites is to provide good briefs for agents to learn about how we work and think — <b>these sites are a more evolved and focused version of what is usually called LLM memory</b>.&rdquo;</blockquote>
+
+<p>This page develops that into the argument it deserves. It belongs on this site because <b>the thesis is an NFR story</b>: a memory is only better than a transcript if somebody maintains its non-functional requirements. It is also proposed for the network hub at <a href="https://sgit.ai">sgit.ai</a>, because it explains all fourteen sites at once rather than this one.</p>
+
+<h2 id="claim">1. The claim</h2>
+<p>What products call &ldquo;memory&rdquo; today is an <em>accumulation</em>: embeddings of past conversations, retrieved by similarity, private to one vendor's silo, unversioned, uncurated, and invisible to the person it describes. This network is the same function built as <b>publishing</b>.</p>
+<div class="tablewrap"><table>
+  <thead><tr><th></th><th class="fatal">Conventional LLM memory</th><th class="safe">These sites</th></tr></thead>
+  <tbody>
+    <tr><td><b>Content</b></td><td>accumulated transcripts</td><td><b>curated briefs</b> — written, reviewed, pruned</td></tr>
+    <tr><td><b>Retrieval</b></td><td>similarity search, opaque</td><td><b>addressable URLs</b>, plus <a href="../llms.txt">llms.txt</a> and <a href="../llms-full.txt">llms-full.txt</a></td></tr>
+    <tr><td><b>Versioning</b></td><td>none</td><td>git, version-prefixed filenames, dated pages, <a href="../admin/versions.html">a release history</a></td></tr>
+    <tr><td><b>Truthfulness</b></td><td>whatever was said</td><td><a href="../documentation/index.html">the reality-document rule</a>: <em>briefs are aspirations, not facts</em></td></tr>
+    <tr><td><b>Portability</b></td><td>locked to one vendor</td><td><b>any agent, any vendor, one HTTP GET</b></td></tr>
+    <tr><td><b>Licence</b></td><td>unclear</td><td><b>CC BY 4.0, explicit, irrevocable</b></td></tr>
+    <tr><td><b>Inspectable by the human</b></td><td>rarely</td><td>it is a website — read your own memory</td></tr>
+    <tr><td><b>Shared across agents</b></td><td><b class="no">no</b></td><td><b class="yes">yes</b> — one memory, many agents, no sync</td></tr>
+  </tbody>
+</table></div>
+<p class="claim">Memory you can read, cite, version, license and hand to any agent — because it is a website.</p>
+
+<h2 id="evidence">2. The evidence that this was already the design</h2>
+<p>The thesis is not a retrofit. The estate was building toward it explicitly, before the sentence was said:</p>
+<ul>
+  <li><b>Guides with <code>for_llms</code> in the filename.</b> The testing guidance and the Python formatting guide both carry it, and the IFD guide's purpose line reads <em>complete reference for LLMs assisting with IFD-based development</em>. The intended reader was named in the filename.</li>
+  <li><b>The markdown twin at every URL</b>, adopted so <em>a traversing agent never has to parse HTML</em>. <a href="../index.md">This site's front page has one.</a></li>
+  <li><b>The agent-access report's finding</b> — <em>the audience is disproportionately agents… it can read the map and cannot walk it</em> — which is a memory-retrieval failure diagnosed in exactly those terms, by a session that was not looking for a memory thesis. <a href="../documents/memory-thesis.html">The source document.</a></li>
+  <li><b>The house pattern itself</b>: <code>llms.txt</code> as the whole agent surface, single-file concatenation, and numbered asks an agent can act on rather than prose it has to interpret.</li>
+</ul>
+
+<h2 id="evolved">3. What &ldquo;more evolved&rdquo; concretely means</h2>
+<p>Five disciplines, and each is a non-functional requirement applied to knowledge rather than to code. This is the whole reason the page sits on this site.</p>
+<div class="ladder">
+  <div class="cap"><span class="capnum">1</span><h3>Curation is the villagers' work, applied to knowledge</h3><p>Somebody owns each site, prunes it, and keeps it true. That is <a href="../documentation/index.html">the reality-doc discipline</a> as memory hygiene, and it is maintenance work that produces no new features — which is exactly what makes it the villagers' job. <span class="from">Cross-link: <b><a href="https://open-source.sgit.ai">open-source.sgit.ai</a></b> owns the market-side argument.</span></p></div>
+  <div class="cap"><span class="capnum">2</span><h3>Versioning makes memory correctable</h3><p>The thing neither a frozen vault nor a transcript can do. A wrong page can be fixed, and the fix is itself in the record. <span class="from">See <b><a href="../admin/versions.html">the release history</a></b>.</span></p></div>
+  <div class="cap"><span class="capnum">3</span><h3>The do-not-publish tiers are memory's security model</h3><p>Every brief pack in this series ships one, and this site's is <a href="../shipped/index.html#boundaries">stated on the page that states its limits</a>. A memory without redaction discipline leaks, and it leaks irreversibly, because publishing is not undoable.</p></div>
+  <div class="cap"><span class="capnum">4</span><h3>Shipped-versus-asserted pages are memory's calibration</h3><p>A memory that cannot distinguish designed from built teaches agents to overclaim. That is the single most common failure found across this estate's stale artefacts. <span class="from">This site's own: <b><a href="../shipped/index.html">what it asserts versus what it can show</a></b>.</span></p></div>
+  <div class="cap"><span class="capnum">5</span><h3>Deconfliction is memory's normalisation</h3><p>One canonical copy, siblings link. Without it the network grows diverging duplicates, which is what a hub is for and also what makes a hub dangerous. <span class="from">The contract: <b><a href="../map/index.html#contract">the topic map</a></b>.</span></p></div>
+</div>
+
+<h2 id="limits">4. The honest limits</h2>
+<div class="warnbox"><b>Staleness is the failure mode, and this estate has already demonstrated it four times.</b> A capabilities file, a reality index left dozens of versions behind, a README describing a repository that does not exist, and a second version file read by nothing. In an ordinary documentation set those are untidy. <b>In an agent-memory network a stale page is a false memory</b> — which is why the thesis and the generate-or-date rule arrive together or not at all.</div>
+<p><b>Curated memory is opinionated memory.</b> These sites teach how <em>we</em> think, and an agent that reads them inherits the positions, including the wrong ones. The mitigation is the convention of publishing tensions unresolved rather than resolving them for tidiness, and it is a real mitigation rather than a disclaimer: <a href="../map/index.html#counter">the hub publishes the argument against its own existence</a>.</p>
+<p><b>Fourteen sites is itself a retrieval problem.</b> Without <a href="../map/index.html">the topic map</a> and the cross-site deconflicts, the network reproduces at network scale exactly the discovery failure the agent-access report found inside one site.</p>
+
+<h2 id="counter">Counter-evidence</h2>
+<p>The thesis is a claim about a property this network is <em>trying</em> to have, not a measured result. Nobody has run an evaluation asking whether an agent briefed from these sites works better than one that was not — and <a href="../scorecard/index.html">the scorecard's explainability row</a> records that there are no evals anywhere in the estate. That absence applies to this page as much as to anything else on the site. The claim is falsifiable and untested, and it is published in that state deliberately.</p>
+
+<div class="pagenav">
+  <a href="../map/index.html">← The topic map</a>
+  <a href="../testing/index.html">Testing →</a>
+</div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">nfrs<span>.sgit.ai</span></div>
+    <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a></p>
+  </div>
+  <div>
+    <h4>The hub</h4>
+    <a href="../map/index.html">&#9679; The topic map</a>
+    <a href="../memory/index.html">The memory thesis</a>
+    <a href="../scorecard/index.html">The scorecard</a>
+    <a href="../network/index.html">The network</a>
+    <a href="../backups/index.html">Backups: the gap</a>
+  </div>
+  <div>
+    <h4>The owned disciplines</h4>
+    <a href="../testing/index.html">Testing</a>
+    <a href="../ci/index.html">CI pipelines</a>
+    <a href="../documentation/index.html">Documentation &amp; reality</a>
+    <a href="../ifd/index.html">IFD</a>
+    <a href="../resilience/index.html">Resilience</a>
+  </div>
+  <div>
+    <h4>Discipline, not figures</h4>
+    <a href="../budgets/index.html">Budgets</a>
+    <a href="../pm/index.html">Project management</a>
+    <a href="../shipped/index.html">What this site ships</a>
+    <a href="../documents/index.html">The documents</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../admin/comms.html">Comms: tasks &amp; requests</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../llms.txt">llms.txt</a>
+    <a href="../llms-full.txt">llms-full.txt</a>
+  </div>
+</div></footer>
+
+</body>
+</html>

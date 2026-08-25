@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Project management: how a brief becomes work — nfrs.sgit.ai</title>
+<meta name="description" content="The project manager is where the register becomes work. Plus the part nobody had written down: the brief-and-debrief system this estate runs across roughly four thousand documents, described as a system for the first time.">
+<link rel="canonical" href="https://nfrs.sgit.ai/pm/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nfrs.sgit.ai">
+<meta property="og:url" content="https://nfrs.sgit.ai/pm/index.html">
+<meta property="og:title" content="How a brief becomes work here">
+<meta property="og:description" content="Acceptance criteria, same-day cross-team reviews, day-indexes, numbered asks and tasks, good-failure and bad-failure debriefs. Roughly four thousand documents of demonstrated practice, described as a system nowhere until this page.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">the hub</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../map/index.html">The map<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../map/index.html">&#9679; The topic map</a>
+      <a class="sl" href="../memory/index.html">The memory thesis</a>
+      <a class="sl" href="../network/index.html">The network</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../testing/index.html">Practice<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../testing/index.html">Testing</a>
+      <a class="sl" href="../ci/index.html">CI pipelines</a>
+      <a class="sl" href="../resilience/index.html">Resilience</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documentation/index.html">Documentation<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documentation/index.html">The reality system</a>
+      <a class="sl" href="../ifd/index.html">IFD: the methodology</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../budgets/index.html">Money &amp; work<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../budgets/index.html">Budgets as a discipline</a>
+      <a class="sl here" href="../pm/index.html">Project management</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../scorecard/index.html">The honest column<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../scorecard/index.html">&#9679; The scorecard</a>
+      <a class="sl" href="../backups/index.html">Backups: the gap</a>
+      <a class="sl" href="../shipped/index.html">What this site ships</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documents/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documents/index.html">The documents</a>
+      <a class="sl" href="../admin/comms.html">Comms: tasks &amp; requests</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__NFRs">★ GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+<div class="crumb"><a href="../index.html">nfrs.sgit.ai</a> / pm</div>
+<h1>The project manager is where the register becomes work</h1>
+<p class="lead">Two layers, and the second is the one worth the page. The first is a position about what project management <em>is</em>. The second is a description of what actually happens here every day, which had been demonstrated across thousands of documents and described as a system precisely nowhere.</p>
+
+<h2 id="position">1. The position</h2>
+<blockquote class="challenge">&ldquo;The project manager is where <b>the register becomes work</b>.&rdquo;</blockquote>
+<p>A risk register that produces no change to what anybody does is a document, not a control. The claim is that risk management and project management are <b>one discipline with two vocabularies</b>: the register names what could go wrong, and the plan is the only place that naming turns into action. Split them across two roles and two artefacts and the register drifts into a compliance object.</p>
+<p>Four instruments make the register operational rather than decorative:</p>
+<div class="tablewrap"><table>
+  <thead><tr><th>Instrument</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><b>A register per project</b></td><td>Not one organisational register. The unit of ownership matches the unit of delivery, so the person who can act on an entry is the person holding it.</td></tr>
+    <tr><td><b>A net score</b></td><td>Exposure after the controls that actually exist, rather than before. A gross score measures the world; a net score measures your response to it.</td></tr>
+    <tr><td><b>Erosion</b></td><td>Controls decay. A control credited at full strength two years after anybody checked it is a fiction, and erosion makes the decay a tracked quantity rather than a surprise.</td></tr>
+    <tr><td><b>The missing reference class</b></td><td>The estimate nobody has: how often did this kind of project, run this way, actually go wrong? Naming its absence is more honest than substituting a number for it.</td></tr>
+  </tbody>
+</table></div>
+<p>The full grounding vocabulary — fact, evidence, measure, vulnerability, risk — belongs to <a href="https://risks.sgit.ai">risks.sgit.ai</a> and <a href="https://standards.sgit.ai">standards.sgit.ai</a>, and this page links it rather than restating it.</p>
+
+<h2 id="system">2. How a brief becomes work here</h2>
+<p>This section is the original contribution. The estate's way of working <em>is</em> its project-management methodology, it is demonstrated across roughly four thousand documents <span class="asof">as of 24 August 2026</span>, and no page anywhere described it as a system until this one. It also doubles as onboarding: an agent session starting cold can read this and know how the work is shaped.</p>
+<div class="ladder">
+  <div class="cap"><span class="capnum">1</span><h3>A brief, with acceptance criteria</h3><p>Work starts as a written brief that states what would count as done. The criteria are numbered, which is what makes the later argument about whether it was done a short one. <span class="from">The discipline: <b>a brief with no acceptance criteria is a wish.</b></span></p></div>
+  <div class="cap"><span class="capnum">2</span><h3>Numbered asks and numbered tasks</h3><p>Requests inside a brief are numbered, and so are the tasks they generate. Not decoration: a numbered ask can be referred to across documents, across sessions, and across teams without quoting it, and an unanswered one is visibly unanswered. <span class="from">This is what makes a document <b>actionable by an agent</b> rather than merely readable.</span></p></div>
+  <div class="cap"><span class="capnum">3</span><h3>Same-day cross-team review</h3><p>A brief produced by one team is read by another the same day. The speed is the mechanism: a review that arrives a week later arrives after the work has already been built on. <span class="from">Cost: it only works where the reviewing team is genuinely available, which is a staffing fact, not a process one.</span></p></div>
+  <div class="cap"><span class="capnum">4</span><h3>Version-prefixed filenames and day-indexes</h3><p>Filenames carry a version prefix, so a directory listing sorts chronologically without metadata. Each working day gets an index of what it produced. Together they turn a pile of documents into <b>a timeline that can be walked backwards</b>. <span class="from">This is the retrieval half of <a href="../memory/index.html">the memory thesis</a>, implemented as a naming convention.</span></p></div>
+  <div class="cap"><span class="capnum">5</span><h3>The debrief, classified</h3><p>Work ends with a debrief, and failures are classified as <b>good failure</b> or <b>bad failure</b> — a good failure being one that bought information worth its cost. The classification is the point: without it, a team either punishes all failure or excuses all of it. <span class="from">Related: <a href="../resilience/index.html">every resilience mechanism here traces to a named incident</a>, which is what a debrief culture produces downstream.</span></p></div>
+  <div class="cap"><span class="capnum">6</span><h3>The handover guide</h3><p>A session that ends writes down how the next one starts, with one instruction above the rest: <em>don't improvise.</em> Written for people, load-bearing for agents, because an agent has no memory of the previous session and will cheerfully invent one. <span class="from">The clearest single piece of evidence that <a href="../memory/index.html">the memory thesis</a> describes something already being done.</span></p></div>
+</div>
+<p class="claim">The system is not novel step by step. What is novel is that it is <em>run</em>, at scale, by a team whose members mostly have no memory between sessions — and that this is the first page to say so.</p>
+
+<h2 id="counter">Counter-evidence</h2>
+<div class="warnbox">
+<p><b>Three honest weaknesses in the system above.</b></p>
+<ul>
+  <li><b>Nothing enforces any of it.</b> Every step is a convention held by attention, which is the same finding as <a href="../documentation/index.html#counter">the documentation page</a> and <a href="../testing/index.html#counter">the testing page</a>. The conventions that survive here are the ones a script checks, and none of these six is checked.</li>
+  <li><b>The scale is stated approximately.</b> Roughly four thousand documents, and the day-indexes and debriefs have not been counted precisely — which matters, because the scale <em>is</em> part of the argument. Counting them properly is <a href="../shipped/index.html#proposed">on the proposed list</a>, and until then this figure carries a tilde and a date rather than a claim of precision.</li>
+  <li><b>Same-day review is the first thing to go under load.</b> It is the step most dependent on people being free, and no version of this system has been tested at a point where they were not.</li>
+</ul>
+</div>
+
+<div class="pagenav">
+  <a href="../budgets/index.html">← Budgets</a>
+  <a href="../resilience/index.html">Resilience →</a>
+</div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">nfrs<span>.sgit.ai</span></div>
+    <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a></p>
+  </div>
+  <div>
+    <h4>The hub</h4>
+    <a href="../map/index.html">&#9679; The topic map</a>
+    <a href="../memory/index.html">The memory thesis</a>
+    <a href="../scorecard/index.html">The scorecard</a>
+    <a href="../network/index.html">The network</a>
+    <a href="../backups/index.html">Backups: the gap</a>
+  </div>
+  <div>
+    <h4>The owned disciplines</h4>
+    <a href="../testing/index.html">Testing</a>
+    <a href="../ci/index.html">CI pipelines</a>
+    <a href="../documentation/index.html">Documentation &amp; reality</a>
+    <a href="../ifd/index.html">IFD</a>
+    <a href="../resilience/index.html">Resilience</a>
+  </div>
+  <div>
+    <h4>Discipline, not figures</h4>
+    <a href="../budgets/index.html">Budgets</a>
+    <a href="../pm/index.html">Project management</a>
+    <a href="../shipped/index.html">What this site ships</a>
+    <a href="../documents/index.html">The documents</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../admin/comms.html">Comms: tasks &amp; requests</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../llms.txt">llms.txt</a>
+    <a href="../llms-full.txt">llms-full.txt</a>
+  </div>
+</div></footer>
+
+</body>
+</html>

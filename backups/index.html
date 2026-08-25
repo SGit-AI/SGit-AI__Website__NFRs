@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Backups: the gap — nfrs.sgit.ai</title>
+<meta name="description" content="The eighth item on this estate’s own list of non-functional requirements, mentioned constantly across the corpus, with no doctrine written anywhere. Published as an absence, with the question that has to be answered before the page can be written.">
+<link rel="canonical" href="https://nfrs.sgit.ai/backups/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nfrs.sgit.ai">
+<meta property="og:url" content="https://nfrs.sgit.ai/backups/index.html">
+<meta property="og:title" content="Backups: the one NFR on the list with no doctrine">
+<meta property="og:description" content="An honest stub. The eighth item on the corpus’s own eight-NFR sentence has no written backup or recovery discipline anywhere, in an estate with irreversible publishing and frozen vaults. Stated and dated rather than quietly omitted.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">the hub</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../map/index.html">The map<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../map/index.html">&#9679; The topic map</a>
+      <a class="sl" href="../memory/index.html">The memory thesis</a>
+      <a class="sl" href="../network/index.html">The network</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../testing/index.html">Practice<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../testing/index.html">Testing</a>
+      <a class="sl" href="../ci/index.html">CI pipelines</a>
+      <a class="sl" href="../resilience/index.html">Resilience</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documentation/index.html">Documentation<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documentation/index.html">The reality system</a>
+      <a class="sl" href="../ifd/index.html">IFD: the methodology</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../budgets/index.html">Money &amp; work<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../budgets/index.html">Budgets as a discipline</a>
+      <a class="sl" href="../pm/index.html">Project management</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../scorecard/index.html">The honest column<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../scorecard/index.html">&#9679; The scorecard</a>
+      <a class="sl here" href="../backups/index.html">Backups: the gap</a>
+      <a class="sl" href="../shipped/index.html">What this site ships</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documents/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documents/index.html">The documents</a>
+      <a class="sl" href="../admin/comms.html">Comms: tasks &amp; requests</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__NFRs">★ GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+<div class="crumb"><a href="../index.html">nfrs.sgit.ai</a> / backups</div>
+<h1>Backups: the gap</h1>
+<p class="lead">This is a stub, published deliberately. Every other item on <a href="../index.html#definition">the eight-item sentence</a> that gives this site its scope has material behind it somewhere in the corpus. This one does not.</p>
+
+<div class="warnbox"><b>Status <span class="asof">as of 24 August 2026</span>: no doctrine.</b> Backups are mentioned constantly across the corpus and there is no written backup or recovery discipline anywhere — no policy, no restore procedure, no stated recovery objective, no test of a restore ever having worked. The nearest thing to it is a recovery document <em>proposed</em> for a keys vault, which is a proposal for one component rather than a doctrine for an estate.</div>
+
+<h2 id="why">Why the absence is worth a page</h2>
+<p>Three reasons, and the third is the one that makes it urgent rather than untidy.</p>
+<ul>
+  <li><b>It is on this estate's own list.</b> The eight-NFR sentence is quoted verbatim wherever this site states its scope. Quoting a list and then silently omitting one of its items would be the exact failure mode <a href="../documentation/index.html">the reality-document rule</a> exists to prevent.</li>
+  <li><b>The topic is dense and the doctrine is empty.</b> Frequent mention with no governing document is the signature of a thing everybody assumes somebody else has handled. It is a more dangerous state than obvious neglect, because it reads as coverage.</li>
+  <li><b>This is an estate with irreversible operations.</b> Publishing cannot be undone, and vaults can be frozen. Those are precisely the conditions under which a missing restore path is discovered at the worst possible moment — and <a href="../memory/index.html">the memory thesis</a> raises the stakes again, because a network positioned as durable memory that cannot restore itself has a durability claim it cannot support.</li>
+</ul>
+
+<h2 id="question">The question to answer before writing the doctrine</h2>
+<p class="claim">Is the vault model — versioning plus escrow — already the backup doctrine, unnamed?</p>
+<p>This is the right first question, and answering it either way collapses most of the work:</p>
+<div class="tablewrap"><table>
+  <thead><tr><th>If the answer is yes</th><th>If the answer is no</th></tr></thead>
+  <tbody>
+    <tr><td>The doctrine largely exists and has never been written down or named, which is the same shape as <a href="../resilience/index.html">the resilience doctrine</a> and <a href="../pm/index.html#system">the PM system</a>. The work is to state it, name its recovery objectives, and <b>test a restore</b> — because an untested restore path is a belief, not a backup.</td><td>There is a real gap, and it needs a written discipline covering what is backed up, how often, where it is held, who can restore it, and how the restore is verified. The estate would be starting from close to nothing.</td></tr>
+  </tbody>
+</table></div>
+<p>Either way, one requirement survives both branches and is worth stating now: <b>a restore that has never been performed is not a backup.</b> Whatever the vault model turns out to provide, that test has not been run.</p>
+
+<h2 id="honest">Why this page exists in this state</h2>
+<p>Because the alternative was to leave the item off the navigation and hope nobody counted. A site whose credibility rests on <a href="../scorecard/index.html">publishing a mixed scorecard</a> cannot quietly drop the one row that is entirely amber. The stub is here so the gap is visible, dated, and awkward — which is the most useful thing an empty page can be.</p>
+<p>What replaces it: either the doctrine, or a page explaining that the vault model already was it. Tracked on <a href="../admin/comms.html">the comms page</a> and listed on <a href="../shipped/index.html#proposed">what is proposed and not built</a>. Cross-reference: <a href="https://sgit.ai">sgit.ai</a> owns the vault layer whose properties decide the answer.</p>
+
+<div class="pagenav">
+  <a href="../resilience/index.html">← Resilience</a>
+  <a href="../scorecard/index.html">The scorecard →</a>
+</div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">nfrs<span>.sgit.ai</span></div>
+    <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a></p>
+  </div>
+  <div>
+    <h4>The hub</h4>
+    <a href="../map/index.html">&#9679; The topic map</a>
+    <a href="../memory/index.html">The memory thesis</a>
+    <a href="../scorecard/index.html">The scorecard</a>
+    <a href="../network/index.html">The network</a>
+    <a href="../backups/index.html">Backups: the gap</a>
+  </div>
+  <div>
+    <h4>The owned disciplines</h4>
+    <a href="../testing/index.html">Testing</a>
+    <a href="../ci/index.html">CI pipelines</a>
+    <a href="../documentation/index.html">Documentation &amp; reality</a>
+    <a href="../ifd/index.html">IFD</a>
+    <a href="../resilience/index.html">Resilience</a>
+  </div>
+  <div>
+    <h4>Discipline, not figures</h4>
+    <a href="../budgets/index.html">Budgets</a>
+    <a href="../pm/index.html">Project management</a>
+    <a href="../shipped/index.html">What this site ships</a>
+    <a href="../documents/index.html">The documents</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../admin/comms.html">Comms: tasks &amp; requests</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../llms.txt">llms.txt</a>
+    <a href="../llms-full.txt">llms-full.txt</a>
+  </div>
+</div></footer>
+
+</body>
+</html>

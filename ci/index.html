@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CI pipelines: build once, verify before naming — nfrs.sgit.ai</title>
+<meta name="description" content="The pipeline as a verifier rather than a runner: native per-arch builds, push by digest only, integration-test the pre-tag image, and only then assemble a manifest. Plus auto-increment versioning from one file, and the workflow that invokes a binary defined nowhere.">
+<link rel="canonical" href="https://nfrs.sgit.ai/ci/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nfrs.sgit.ai">
+<meta property="og:url" content="https://nfrs.sgit.ai/ci/index.html">
+<meta property="og:title" content="Build once, verify before naming">
+<meta property="og:description" content="Nothing gets a name until it has passed as an anonymous digest. The same shape one level up: a machine image is relaunched from what was baked and re-verified before it is tagged healthy. The artefact proves itself twice.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="site"><div class="row">
+  <a class="brand" href="../index.html">nfrs<span>.sgit.ai</span></a>
+  <a class="parent" href="https://sgit.ai" title="sgit.ai — the parent project: the hub this site is the engineering half of, and the network whose topic map lives here">↗ part of <b>sgit.ai</b></a>
+  <span class="stage-pill">the hub</span>
+  <a class="ver" href="../admin/versions.html" title="Site release history">v0.1.0</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Menu">Menu</button>
+  <div class="nav-items">
+    <div class="ni ni-has">
+      <a class="nl" href="../map/index.html">The map<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../map/index.html">&#9679; The topic map</a>
+      <a class="sl" href="../memory/index.html">The memory thesis</a>
+      <a class="sl" href="../network/index.html">The network</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl here" href="../testing/index.html">Practice<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../testing/index.html">Testing</a>
+      <a class="sl here" href="../ci/index.html">CI pipelines</a>
+      <a class="sl" href="../resilience/index.html">Resilience</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documentation/index.html">Documentation<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documentation/index.html">The reality system</a>
+      <a class="sl" href="../ifd/index.html">IFD: the methodology</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../budgets/index.html">Money &amp; work<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../budgets/index.html">Budgets as a discipline</a>
+      <a class="sl" href="../pm/index.html">Project management</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../scorecard/index.html">The honest column<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../scorecard/index.html">&#9679; The scorecard</a>
+      <a class="sl" href="../backups/index.html">Backups: the gap</a>
+      <a class="sl" href="../shipped/index.html">What this site ships</a>
+      </div>
+    </div>
+    <div class="ni ni-has">
+      <a class="nl" href="../documents/index.html">Site<span class="caret">&#9662;</span></a>
+      <div class="sub">
+      <a class="sl" href="../documents/index.html">The documents</a>
+      <a class="sl" href="../admin/comms.html">Comms: tasks &amp; requests</a>
+      <a class="sl" href="../admin/versions.html">Release history</a>
+      <a class="sl" href="../admin/index.html">Admin &amp; engineering</a>
+      </div>
+    </div>
+  </div>
+  <a class="gh" href="https://github.com/SGit-AI/SGit-AI__Website__NFRs">★ GitHub</a>
+  <script src="../assets/nav.js" defer></script>
+</div></nav>
+
+<main class="doc">
+<div class="crumb"><a href="../index.html">nfrs.sgit.ai</a> / ci</div>
+<h1>The pipeline is a verifier, not a runner</h1>
+<p class="lead">A CI pipeline that builds an artefact, tags it, and then tests it has already made the mistake. By the time the tests run, the name exists — and a name is a promise other things resolve. The pattern this estate arrived at inverts that order, and the inversion is the whole of the idea.</p>
+
+<p class="claim">Build once, verify before naming. Nothing gets a name until it has passed as an anonymous digest.</p>
+
+<h2 id="shape">The shape</h2>
+<div class="tablewrap"><table>
+  <thead><tr><th>Step</th><th>What happens</th><th>Why in that order</th></tr></thead>
+  <tbody>
+    <tr><td><b>1. Native per-arch builds</b></td><td>Each architecture builds on its own runner rather than under emulation.</td><td>Emulated builds are slow enough that people stop running them, and different enough that they hide platform bugs until release.</td></tr>
+    <tr><td><b>2. Push by digest only</b></td><td>The built image goes to the registry addressed by its content hash. <b>No tag is applied.</b></td><td>A digest is a fact about bytes. A tag is a claim about fitness, and it is far too early to make one.</td></tr>
+    <tr><td><b>3. Integration-test the pre-tag image</b></td><td>The tests pull the digest and exercise the real artefact, not a rebuild of it.</td><td>Testing a rebuild tests the build. Testing the digest tests the thing that will ship.</td></tr>
+    <tr><td><b>4. Assemble the manifest, then tag</b></td><td>Only now are the per-arch digests combined and given a name.</td><td>The name is applied to something that has already passed. Naming is the last step because naming is the promise.</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="twice">The same shape, one level up</h2>
+<p>Machine images follow the identical discipline, and this is where it becomes obvious that the pattern is a principle rather than a container-registry trick. The image is baked; then a new instance is <b>relaunched from the baked image</b> and re-verified from the outside; and only then is it tagged healthy.</p>
+<p class="claim">The artefact proves itself twice: once as built, once as booted.</p>
+<p>A build that succeeds proves the build succeeded. It does not prove that what was built starts. Those are different claims, and treating them as one is how an unbootable image gets promoted with a green pipeline behind it.</p>
+
+<h2 id="versioning">Auto-increment versioning: one source, many consumers</h2>
+<p>Versions come from a single file at the repository root, incremented by branch policy — the development branch bumps a minor, the main branch bumps a major — read at runtime by the application and used as the image tag by the pipeline. One fact, written once, consumed everywhere.</p>
+<p><b>This site runs the same pattern</b>, which is the nearest thing to a live demonstration a hub page can offer: <a href="../admin/build/version.txt">admin/build/version.txt</a> owns the version, <a href="../admin/index.html#chrome">chrome.py stamps it</a> across every page and both text twins, and <a href="../admin/index.html#validate">the pre-release gate refuses to tag</a> if any page disagrees with the file or if the release commit's subject disagrees with either. See <a href="../admin/index.html">how this site is built</a>.</p>
+
+<h2 id="counter">Counter-evidence</h2>
+<div class="warnbox">
+<p><b>Two lapses, both in the pipeline that teaches the pattern.</b> Published as found <span class="asof">as of 24 August 2026</span>, measured in <a href="https://sg-compute.sgit.ai">the sg-compute pack</a>:</p>
+<ul>
+  <li><b>A workflow invokes a binary that is defined nowhere, sixteen times.</b> The workflow is dead: it cannot have run successfully, and nobody noticed, which means nobody was reading the result. A pipeline is only a verifier if somebody is verifying the verifier.</li>
+  <li><b>The one-source-of-truth rule has a second version file, read by nothing.</b> It is the exact drift the rule exists to prevent, sitting inside the estate that wrote the rule.</li>
+</ul>
+</div>
+<p>The second one is worth more than the first. A dead workflow is a maintenance failure. A second version file is a <em>structural</em> failure of the very pattern the section above recommends, and it teaches the real rule: <b>single-source-of-truth is not achieved by declaring a source, it is achieved by deleting the others</b>. Until the second file is gone, the estate has two sources and a convention, which is what everybody else has.</p>
+<p>The consistency requirement that follows from this is stated on <a href="../map/index.html#linked">the topic map</a>; the conventions that would enforce it belong to <a href="https://coding.sgit.ai">coding.sgit.ai</a>.</p>
+
+<div class="pagenav">
+  <a href="../testing/index.html">← Testing</a>
+  <a href="../documentation/index.html">Documentation →</a>
+</div>
+</main>
+
+<footer class="site"><div class="cols">
+  <div>
+    <div class="brandline">nfrs<span>.sgit.ai</span></div>
+    <p>The non-functional requirements — version control, reliability, resilience, security, backups, consistency, explainability and documentation — as this estate actually practises them, with the topic map that says where everything else lives. Part of the <a href="https://sgit.ai" style="display:inline;padding:0"><b>sgit.ai</b></a> network. All content CC BY 4.0.</p>
+    <p class="netline"><a href="https://sgit.ai"><b>↗ sgit.ai</b></a> — the parent project · <a href="https://sg-compute.sgit.ai">↗ sg-compute.sgit.ai</a> — the platform artefacts · <a href="https://coding.sgit.ai">↗ coding.sgit.ai</a> — the conventions · <a href="https://open-source.sgit.ai">↗ open-source.sgit.ai</a> — the villagers argument · <a href="https://sgit.ai/network/index.html">↗ the network</a></p>
+    <p class="partnote">⚠ Hub disclosure: this site links measurements taken by sibling sites and never re-measures them. Every figure here is dated or generated. <a href="../shipped/index.html" style="display:inline;padding:0">What this site ships, and what it only asserts</a>.</p>
+    <p class="verline">site <a href="../admin/versions.html">v0.1.0</a> · <a href="../admin/index.html">engineering</a></p>
+  </div>
+  <div>
+    <h4>The hub</h4>
+    <a href="../map/index.html">&#9679; The topic map</a>
+    <a href="../memory/index.html">The memory thesis</a>
+    <a href="../scorecard/index.html">The scorecard</a>
+    <a href="../network/index.html">The network</a>
+    <a href="../backups/index.html">Backups: the gap</a>
+  </div>
+  <div>
+    <h4>The owned disciplines</h4>
+    <a href="../testing/index.html">Testing</a>
+    <a href="../ci/index.html">CI pipelines</a>
+    <a href="../documentation/index.html">Documentation &amp; reality</a>
+    <a href="../ifd/index.html">IFD</a>
+    <a href="../resilience/index.html">Resilience</a>
+  </div>
+  <div>
+    <h4>Discipline, not figures</h4>
+    <a href="../budgets/index.html">Budgets</a>
+    <a href="../pm/index.html">Project management</a>
+    <a href="../shipped/index.html">What this site ships</a>
+    <a href="../documents/index.html">The documents</a>
+  </div>
+  <div>
+    <h4>Site</h4>
+    <a href="../admin/comms.html">Comms: tasks &amp; requests</a>
+    <a href="../admin/versions.html">Release history</a>
+    <a href="../llms.txt">llms.txt</a>
+    <a href="../llms-full.txt">llms-full.txt</a>
+  </div>
+</div></footer>
+
+</body>
+</html>
